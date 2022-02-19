@@ -9,6 +9,7 @@ import incrementMode from '../lib/modeManager/modeIncrementer'
 
 
 type Opinions = {
+  readonly mode: number;
   readonly id: number;
   text: string;
 };
@@ -21,6 +22,7 @@ const Home: NextPage = () => {
   const isTheMode = true
 
   const newOpinion: Opinions = {
+    mode: 0,
     text: "test",
     id: 1,
   };
@@ -59,10 +61,7 @@ const Home: NextPage = () => {
           <RepresentativeField isTheMode={count == 2 ?? isTheMode} onClick={() => {
             setOpinions([...opinions, newOpinion])
 
-          } } Opinions={{
-            id: 0,
-            text: 'tt'
-          }} />
+          }} Opinions={setOpinions([...opinions, newOpinion])} />
         </Box>
       </Flex>
       <Flex flexDir={"column"} align={"center"} w={"100vw"}>

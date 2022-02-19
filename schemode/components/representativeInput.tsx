@@ -13,7 +13,7 @@ type Opinions = {
 };
 
 
-const RepresentativeField = (props: Props) => {
+const RepresentativeInput = (props: Props) => {
   const [text, setText] = useState('');
   let count = 0
 
@@ -63,4 +63,4 @@ const RepresentativeField = (props: Props) => {
 
 }
 
-export default RepresentativeField;
+export default RepresentativeInput;

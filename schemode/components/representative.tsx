@@ -7,6 +7,7 @@ type Props = {
 }
 
 type Opinions = {
+  mode: number
   readonly id: number;
   text: string;
 };
