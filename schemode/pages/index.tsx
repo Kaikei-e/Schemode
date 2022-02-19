@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading, Spinner, Text, useToast } from '@chakra-ui/react'
 import type { NextPage } from 'next'
+import React from 'react'
 import { useState } from 'react'
 import CurrentModeIndicater from '../components/currentIndicater'
 import ModeState from '../components/modeState'
@@ -7,11 +8,17 @@ import RepresentativeInput from '../components/representative'
 import incrementMode from '../lib/modeManager/modeIncrementer'
 
 
+type Opinions = {
+  readonly id: number;
+  text: string;
+};
+
 const Home: NextPage = () => {
   const toast = useToast()
   const [count, setCount] = useState(0)
+  const [text, setText] = useState('');
+  const [opinions, setOpinions] = useState<Opinions[]>([]);
   const isTheMode = true
-
 
   return (
     <Flex bgColor={"blackAlpha.100"} flexDir="column" w={"100vw"} h={"100vh"}>
@@ -39,7 +46,12 @@ const Home: NextPage = () => {
           <Flex flexDir={"row"} m={"5"}><Text>I'm dysfunctional Parent mode</Text>
             <CurrentModeIndicater isTheMode={count == 2 ?? isTheMode} />
           </Flex>
-          <RepresentativeInput isTheMode={count == 2 ?? isTheMode} />
+          <Flex>
+            {opinions.map((opinion) => {
+              return <li key={opinion.id}>{opinion.text}</li>;
+            })}
+          </Flex>
+          <RepresentativeInput isTheMode={count == 2 ?? isTheMode} onClick={() => setOpinions([newOpinion, ...opinions])}/>
         </Box>
       </Flex>
       <Flex flexDir={"column"} align={"center"} w={"100vw"}>
