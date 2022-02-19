@@ -2,8 +2,7 @@ import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
 
 type Props = {
-  isTheMode: boolean
-  Opinions: Opinions
+  Opinions: Opinions[]
   onClick: any
 }
 
@@ -13,56 +12,20 @@ type Opinions = {
 };
 
 
-const RepresentativeInput = (props: Props) => {
+const RepresentativeField = (props: Props) => {
   const [text, setText] = useState('');
-  const [opinions, setOpinions] = useState<Opinions[]>([]);
-  let count = 0
 
-  const detectChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
-
-  const detectSubmit = () => {
-    if (!text) return;
-
-    const newOpinion: Opinions = {
-      text: props.Opinions.text,
-      id: count += 1,
-    };
-
-
-    props.Opinions([newOpinion, opinions]);
-    setText('');
-  };
-
-  if (props.isTheMode) {
     return (
       <Box borderRadius={"xl"} w="fit-content" h={"fit-content"} m={5} padding={"2"}>
         <Flex flexDir={"column"}>
+          {props.Opinions.map((ele) => {
+            return <li key={ele.id}>{ele.text}</li>;
+          })}
         </Flex>
-        <Flex flexDir={"column"} alignItems={"center"}>
-          <form onSubmit={(e) => {
-            e.preventDefault();
-            detectSubmit();
-          }}>
-            <Textarea bgColor={"gray.200"} borderRadius={"xl"}
-              w={"min"} h={"20"}
-              marginBottom={"2"}
-              isRequired
-              onChange={(e) => detectChanges(e)} >
-
-            </Textarea>
-            <br />
-            <Button type={"submit"} w={"fit-content"} bgColor={"gray.200"} borderRadius={"xl"} onClick={props.onClick} />
-          </form>
-        </Flex>
+        
       </Box>
     );
 
-  } else {
-    return <div></div>
-  }
-
 }
 
-export default RepresentativeInput;
+export default RepresentativeField;
