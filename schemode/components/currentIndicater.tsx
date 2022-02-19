@@ -1,29 +1,26 @@
 import { Spinner } from "@chakra-ui/react";
 
 type Props = {
-  mode: () => {}
+  isTheMode: boolean
 }
 
 const CurrentModeIndicater = (props: Props) => {
-  return (
-    <div>
-      {() => {
-        if (props.mode.arguments >= 0 || props.mode.arguments < 3) {
-          return (
+  if (props.isTheMode) {
 
-            <Spinner
-              thickness='4px'
-              speed='0.65s'
-              emptyColor='gray.200'
-              color='blackAlpha.500'
-              size='xl'
-            />
-          );
-        }
-      }}
-    </div>
+    return (
+      <Spinner
+        margin={2}
+        thickness='4px'
+        speed='2s'
+        emptyColor='gray.200'
+        color='blue.500'
+        size='md'
+      />
+    );
 
-  );
+  } else {
+    return <div></div>
+  }
 }
 
 
