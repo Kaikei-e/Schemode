@@ -1,6 +1,7 @@
-import { Box, Button, Flex, Heading, Text, useToast } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Spinner, Text, useToast } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import CurrentModeIndicater from '../components/currentIndicater'
 import ModeState from '../components/modeState'
 import incrementMode from '../lib/modeManager/modeIncrementer'
 
@@ -17,15 +18,23 @@ const Home: NextPage = () => {
       <Flex flexDir={"row"} alignItems={"stretch"}>
         <Box bgColor={"green.200"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Healthy Adult Mode</Heading>
-          <Flex flexDir={"column"} m={"5"}><Text>Hi, I'm healthy adult mode!</Text></Flex>
+          <Flex flexDir={"column"} m={"5"}>
+            <Text>Hi, I'm healthy adult mode!</Text>
+            <CurrentModeIndicater mode={() => { if (count === 0) { return count } else { return 3 } }} /></Flex>
         </Box>
         <Box bgColor={"yellow.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Child Mode</Heading>
-          <Flex flexDir={"column"} m={"5"}><Text>I'm Dysfunctional child mode</Text></Flex>
+          <Flex flexDir={"column"} m={"5"}>
+            <Text>I'm Dysfunctional child mode </Text>
+            <CurrentModeIndicater mode={() => { if (count === 0) { return count } else { return 3 } }} /></Flex>
+            
         </Box>
         <Box bgColor={"red.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl" overflow={"auto"} scrollBehavior={"smooth"}>
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Parent Mode</Heading>
-          <Flex flexDir={"column"} m={"5"}><Text>I'm dysfunctional Parent mode</Text></Flex>
+          <Flex flexDir={"column"} m={"5"}><Text>I'm dysfunctional Parent mode</Text>
+          <CurrentModeIndicater mode={() => { if (count === 0) { return count } else { return 3 } }} /></Flex>
+          
+          
         </Box>
       </Flex>
       <Flex flexDir={"column"} align={"center"} w={"100vw"}>

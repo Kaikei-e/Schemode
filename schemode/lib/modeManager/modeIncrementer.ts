@@ -1,8 +1,8 @@
 export default function incrementMode(modeNum: number) {
   console.log(modeNum);
   
-  if (modeNum >= 3) {
-    modeNum = 1
+  if (modeNum >= 2) {
+    modeNum = 0
     return modeNum
   } else {
     modeNum += 1
