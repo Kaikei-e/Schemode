@@ -1,24 +1,24 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Input, Text } from "@chakra-ui/react";
 
 type Props = {
   isTheMode: boolean
 }
 
 
-const Representative = (props: Props) => {
+const RepresentativeInput = (props: Props) => {
   if(props.isTheMode){
     return (
-      <Box bgColor={"blackAlpha.200"} w="fit-content" h={"fit-content"}>
+      <Box bgColor={"blackAlpha.100"} borderRadius={"xl"} w="fit-content" h={"fit-content"} m={5}>
         <Flex flexDir={"column"}>
-          <Text>The mode</Text>
+          <Input type={"text"} borderRadius={"xl"} w={"min"}></Input>
         </Flex>
       </Box>
     );
   
   }else{
-    return <div>none</div>
+    return <div></div>
   }
 
 }
 
-export default Representative;
+export default RepresentativeInput;

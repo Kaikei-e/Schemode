@@ -11,7 +11,7 @@ const CurrentModeIndicater = (props: Props) => {
       <Spinner
         margin={2}
         thickness='4px'
-        speed='2s'
+        speed='2.5s'
         emptyColor='gray.200'
         color='blue.500'
         size='md'
