@@ -3,6 +3,9 @@ This is an application that pseudo-realizes interactive chair work with schema m
 **I am only developing this for myself, so please use it at your own risk.**
 
 
+## WIP
+
+
 ## Tech stack
 - [Go](https://go.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
