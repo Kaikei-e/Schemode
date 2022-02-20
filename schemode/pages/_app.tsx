@@ -8,9 +8,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <RecoilRoot>
       <ChakraProvider>
         <Component {...pageProps} />
-      </ChakraProvider>)
-
+      </ChakraProvider>
     </RecoilRoot>
-    }
+  )
+}
 
 export default MyApp
