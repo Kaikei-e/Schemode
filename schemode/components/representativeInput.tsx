@@ -1,20 +1,14 @@
 import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
-
-type Props = {
-  isTheMode: boolean
-  Opinions: Opinions
-  onClick: any
-}
-
-type Opinions = {
-  readonly id: number;
-  text: string;
-};
+import { useRecoilState } from "recoil";
+import { opinionState } from "../lib/stateManage/atom";
+import { theOpinion } from "../lib/structures/theOpinions";
 
 
-const RepresentativeInput = (props: Props) => {
+const RepresentativeInput = (props) => {
+
   const [text, setText] = useState('');
+  const [opinions, setOpinions] = useRecoilState(opinionState);
   let count = 0
 
   const detectChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,12 +18,13 @@ const RepresentativeInput = (props: Props) => {
   const detectSubmit = () => {
     if (!text) return;
 
-    const newOpinion: Opinions = {
+    const newOpinion: theOpinion = {
       text: props.Opinions.text,
       id: count += 1,
+      mode: props.setOpinions
     };
 
-    setOpinions([newOpinion, ...opinions]);
+    props.setOpinions([newOpinion, ...opinions]);
     setText('');
   };
 
@@ -51,7 +46,7 @@ const RepresentativeInput = (props: Props) => {
 
             </Textarea>
             <br />
-            <Button type={"submit"} w={"fit-content"} bgColor={"gray.200"} borderRadius={"xl"} onClick={props.onClick} >Submit</Button>
+            <Button type={"submit"} w={"fit-content"} bgColor={"gray.200"} borderRadius={"xl"} onClick={props.addOpinions} >Submit</Button>
           </form>
         </Flex>
       </Box>

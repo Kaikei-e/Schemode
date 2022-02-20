@@ -2,10 +2,13 @@ import { Box, Button, Flex, Heading, Spinner, Text, useToast } from '@chakra-ui/
 import type { NextPage } from 'next'
 import React from 'react'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
 import CurrentModeIndicater from '../components/currentIndicater'
 import ModeState from '../components/modeState'
-import RepresentativeField from '../components/representative'
+import RepresentativeField from '../components/representativeField'
+import RepresentativeInput from '../components/representativeInput'
 import incrementMode from '../lib/modeManager/modeIncrementer'
+import { opinionState } from "../lib/stateManage/atom";
 
 
 type Opinions = {
@@ -18,14 +21,19 @@ const Home: NextPage = () => {
   const toast = useToast()
   const [count, setCount] = useState(0)
   const [text, setText] = useState('');
-  const [opinions, setOpinions] = useState<Opinions[]>([]);
+  //const [opinions, setOpinions] = useState<Opinions[]>([]);
   const isTheMode = true
+  
+  const [opinions, setOpinions] = useRecoilState(opinionState);
+
 
   const newOpinion: Opinions = {
     mode: 0,
     text: "test",
     id: 1,
   };
+
+  //setOpinions(opinions => {return {...opinions, ...updateOpinions};})
 
   return (
     <Flex bgColor={"blackAlpha.100"} flexDir="column" w={"100vw"} h={"100vh"}>
@@ -38,7 +46,8 @@ const Home: NextPage = () => {
             <Text>Hi, I'm healthy adult mode!</Text>
             <CurrentModeIndicater isTheMode={count == 0 ?? isTheMode} />
           </Flex>
-          <RepresentativeField isTheMode={count == 0 ?? isTheMode} />
+          <RepresentativeField />
+          <RepresentativeInput />
         </Box>
         <Box bgColor={"yellow.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Child Mode</Heading>
@@ -46,7 +55,7 @@ const Home: NextPage = () => {
             <Text>I'm Dysfunctional child mode </Text>
             <CurrentModeIndicater isTheMode={count == 1 ?? isTheMode} />
           </Flex>
-          <RepresentativeField isTheMode={count == 1 ?? isTheMode} />
+          <RepresentativeField />
         </Box>
         <Box bgColor={"red.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl" overflow={"auto"} scrollBehavior={"smooth"}>
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Parent Mode</Heading>
@@ -58,10 +67,7 @@ const Home: NextPage = () => {
               return <li key={opinion.id}>{opinion.text}</li>;
             })}
           </Flex>
-          <RepresentativeField isTheMode={count == 2 ?? isTheMode} onClick={() => {
-            setOpinions([...opinions, newOpinion])
-
-          }} Opinions={setOpinions([...opinions, newOpinion])} />
+          <RepresentativeField />
         </Box>
       </Flex>
       <Flex flexDir={"column"} align={"center"} w={"100vw"}>
