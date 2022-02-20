@@ -5,7 +5,7 @@ import { countState, opinionsState } from "../lib/stateManage/atom";
 import { theOpinion } from "../lib/structures/theOpinions";
 
 
-const RepresentativeInput = (props: { count: number }) => {
+const RepresentativeInput = (props: { whichMode: number; isTheMode: boolean }) => {
 
   const [text, setText] = useState('');
   const [opinions, setOpinions] = useRecoilState(opinionsState);
@@ -26,7 +26,7 @@ const RepresentativeInput = (props: { count: number }) => {
     const newOpinion: theOpinion = {
       text: text,
       id: count,
-      mode: props.count
+      mode: props.whichMode
     };
 
     setOpinions([newOpinion, ...opinions]);
@@ -48,7 +48,6 @@ const RepresentativeInput = (props: { count: number }) => {
               marginBottom={"2"}
               isRequired
               onChange={(e) => detectChanges(e)} >
-
             </Textarea>
             <br />
             <Button type={"submit"} w={"fit-content"} bgColor={"gray.200"} borderRadius={"xl"} onSubmit={detectSubmit} >Submit</Button>

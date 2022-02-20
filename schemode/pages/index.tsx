@@ -8,7 +8,7 @@ import ModeState from '../components/modeState'
 import RepresentativeField from '../components/representativeField'
 import RepresentativeInput from '../components/representativeInput'
 import incrementMode from '../lib/modeManager/modeIncrementer'
-import { opinionState } from "../lib/stateManage/atom";
+import { opinionsState, opinionState } from "../lib/stateManage/atom";
 
 
 type Opinions = {
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   //const [opinions, setOpinions] = useState<Opinions[]>([]);
   const isTheMode = true
   
-  const [opinions, setOpinions] = useRecoilState(opinionState);
+  const [opinions, setOpinions] = useRecoilState(opinionsState);
 
 
   const newOpinion: Opinions = {
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
             <CurrentModeIndicater isTheMode={count == 0 ?? isTheMode} />
           </Flex>
           <RepresentativeField />
-          <RepresentativeInput whichMode={count} />
+          <RepresentativeInput whichMode={count} isTheMode={count == 0 ?? isTheMode} />
         </Box>
         <Box bgColor={"yellow.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Child Mode</Heading>
