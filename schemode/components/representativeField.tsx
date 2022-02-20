@@ -12,7 +12,11 @@ const RepresentativeField = (props: { whichMode: number }) => {
       <ul>
         <Flex flexDir={"column-reverse"}>
 
-          {opinions.map((opinion) => { return <li>{opinion.text}</li> })}
+          {opinions.map((opinion) => {
+            if (opinion.mode === props.whichMode) {
+              return <li>{opinion.text}</li>
+            }
+          })}
         </Flex>
       </ul>
 
