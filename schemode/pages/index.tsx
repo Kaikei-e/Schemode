@@ -46,7 +46,7 @@ const Home: NextPage = () => {
             <Text>Hi, I'm healthy adult mode!</Text>
             <CurrentModeIndicater isTheMode={count == 0 ?? isTheMode} />
           </Flex>
-          <RepresentativeField />
+          <RepresentativeField whichMode={count} />
           <RepresentativeInput whichMode={count} isTheMode={count == 0 ?? isTheMode} />
         </Box>
         <Box bgColor={"yellow.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
