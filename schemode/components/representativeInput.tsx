@@ -15,7 +15,7 @@ const RepresentativeInput = (props: { whichMode: number; isTheMode: boolean }) =
     return ct + 1;
   }
 
-  const detectChanges = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const detectChanges = (e: any) => {
     setText(e.target.value);
   };
 

@@ -10,12 +10,11 @@ import RepresentativeInput from '../components/representativeInput'
 import incrementMode from '../lib/modeManager/modeIncrementer'
 import { opinionsState } from "../lib/stateManage/atom";
 
-
-type Opinions = {
-  readonly mode: number;
-  readonly id: number;
-  text: string;
-};
+const theModeStatement = [
+  "Hi, I'm healthy adult mode!",
+  "I'm dysfunctional child mode",
+  "I'm dysfunctional Parent mode"
+]
 
 const Home: NextPage = () => {
   const toast = useToast()
@@ -37,7 +36,7 @@ const Home: NextPage = () => {
         <Box bgColor={"green.200"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Healthy Adult Mode</Heading>
           <Flex flexDir={"row"} m={"5"}>
-            <Text>Hi, I'm healthy adult mode!</Text>
+            <Text>{theModeStatement[0]}</Text>
             <CurrentModeIndicater isTheMode={count == 0 ?? isTheMode} />
           </Flex>
           <RepresentativeField whichMode={adultMode} />
@@ -46,7 +45,7 @@ const Home: NextPage = () => {
         <Box bgColor={"yellow.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Child Mode</Heading>
           <Flex flexDir={"row"} m={"5"}>
-            <Text>I'm Dysfunctional child mode </Text>
+            <Text>{theModeStatement[1]}</Text>
             <CurrentModeIndicater isTheMode={count == 1 ?? isTheMode} />
           </Flex>
           <RepresentativeField whichMode={dysChFuncMode} />
@@ -54,7 +53,7 @@ const Home: NextPage = () => {
         </Box>
         <Box bgColor={"red.100"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl" overflow={"auto"} scrollBehavior={"smooth"}>
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Dysfunctional Parent Mode</Heading>
-          <Flex flexDir={"row"} m={"5"}><Text>I'm dysfunctional Parent mode</Text>
+          <Flex flexDir={"row"} m={"5"}><Text>{theModeStatement[2]}</Text>
             <CurrentModeIndicater isTheMode={count == 2 ?? isTheMode} />
           </Flex>
           <RepresentativeField whichMode={dysParentFuncMode} />
