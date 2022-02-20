@@ -12,3 +12,4 @@ This is an application that pseudo-realizes interactive chair work with schema m
 - [Next.js](https://nextjs.org/)
 - [Chakra UI](https://chakra-ui-git-fix-typescript-autocomplete.chakra-ui.vercel.app/) 
 - [Gin WAF](https://github.com/gin-gonic/gin)
+- [State management: Recoil](https://recoiljs.org/)
