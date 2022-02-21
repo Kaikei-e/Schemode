@@ -11,7 +11,6 @@ const RepresentativeField = (props: { whichMode: number }) => {
     <Box borderRadius={"xl"} w="fit-content" h={"fit-content"} m={5} padding={"2"}>
       <ul>
         <Flex flexDir={"column-reverse"}>
-
           {opinions.map((opinion) => {
             if (opinion.mode === props.whichMode) {
               return <li>{opinion.text}</li>

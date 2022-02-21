@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       <Heading textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"5"}>Schemode: The virtual chair work</Heading>
       <ModeState mode={count} />
       <Flex flexDir={"row"} alignItems={"stretch"}>
-        <Box bgColor={"green.200"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl">
+        <Box bgColor={"green.200"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl" overflow={"auto"}>
           <Heading fontSize={"2xl"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"4"}>Healthy Adult Mode</Heading>
           <Flex flexDir={"row"} m={"5"}>
             <Text>{theModeStatement[0]}</Text>
