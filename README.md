@@ -4,6 +4,7 @@ This is an application that pseudo-realizes interactive chair work with schema m
 
 
 ## WIP
+I add the exporting functionality to log virtual chair work sessions and save the logs.
 
 
 ## Tech stack
