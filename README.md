@@ -2,9 +2,12 @@
 This is an application that pseudo-realizes interactive chair work with schema mode in mind.
 **I am only developing this for myself, so please use it at your own risk.**
 
+## Next Step
+- Shifting this app and add more features. This app has more various features and purposes. THis app consists of multiple applications.
 
-## WIP
-I add the exporting functionality to log virtual chair work sessions and save the logs.
+
+~~## WIP~~
+~~I add the exporting functionality to log virtual chair work sessions and save the logs~~
 
 
 ## Tech stack
