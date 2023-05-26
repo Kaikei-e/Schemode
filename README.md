@@ -3,7 +3,7 @@ This is an application that pseudo-realizes interactive chair work with schema m
 **I am only developing this for myself, so please use it at your own risk.**
 
 ## Next Step
-- Shifting to [this app](https://github.com/Kaikei-e/Weathering) and adding more features. This app has more various features and purposes. THis app consists of multiple applications.
+- Shifting to [this app](https://github.com/Kaikei-e/Weathering) and adding more features. This app has more various features and purposes. It consists of multiple applications.
 
 
 ~~## WIP~~
