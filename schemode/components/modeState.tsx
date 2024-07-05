@@ -6,7 +6,7 @@ type Props = {
 
 const modeNum = [
   "Healthy Adult Mode",
-  "Dysfunctional Child Mode",
+  "Vulnerable Child Mode",
   "Dysfunctional Parent Mode"
 ]
 
