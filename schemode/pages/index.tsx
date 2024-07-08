@@ -1,14 +1,17 @@
 import { Box, Button, Flex, Heading, Spinner, Text, useToast } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import React from 'react'
+import React, { use } from 'react'
 import { useState } from 'react'
-import { useRecoilState } from 'recoil'
 import CurrentModeIndicater from '../components/currentIndicater'
 import ModeState from '../components/modeState'
 import RepresentativeField from '../components/representativeField'
 import RepresentativeInput from '../components/representativeInput'
 import incrementMode from '../lib/modeManager/modeIncrementer'
-import { opinionsState } from "../lib/stateManage/atom";
+import { CBTSessionExporter } from '../lib/exporter/sessionExporter'
+import { useRecoilState } from 'recoil'
+import { opinionsState } from '../lib/stateManage/atom'
+
+const backendURL = "http://localhost:9000/api/v1/exportCBTSession"
 
 const theModeStatement = [
   "Hi, I'm healthy adult mode!",
@@ -19,18 +22,34 @@ const theModeStatement = [
 const Home: NextPage = () => {
   const toast = useToast()
   const [count, setCount] = useState(0)
-  const [opState, setOpstatee] = useRecoilState(opinionsState)
+  const [exportedPath, setExportedpath] = useState<string>("")
+  const [opinions, setOpinions] = useRecoilState(opinionsState)
   const isTheMode = true
 
   const adultMode = 0
   const dysChFuncMode = 1
   const dysParentFuncMode = 2
 
-  //setOpinions(opinions => {return {...opinions, ...updateOpinions};})
-
   return (
-    <Flex bgColor={"blackAlpha.100"} flexDir="column" w={"100vw"} h={"100vh"}>
-      <Heading textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"5"}>Schemode: The virtual chair work</Heading>
+    <Flex bgColor={"blackAlpha.100"} flexDir="column" w={"100%"} h={"100%"} overflow={"hidden"}>
+      <Flex textAlign={'center'} w={"100%"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
+        <Heading size={"lg"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"5"}>Schemode: The virtual chair work</Heading>
+        <Flex flexDir={"row"}>
+          <Button width={"30%"} onClick={async () => {
+            const props = {
+              targetURL: backendURL,
+              opinions: opinions
+            };
+
+            const downdloadFormat = await CBTSessionExporter(props)
+
+            setExportedpath(downdloadFormat.path)
+          }} w={"20%"}>Export Session Log</Button>
+        </Flex>
+        {
+          exportedPath ? exportedPath : <p>Not yet created</p>
+        }
+      </Flex>
       <ModeState mode={count} />
       <Flex flexDir={"row"} alignItems={"stretch"}>
         <Box bgColor={"green.200"} w={"30%"} ml={"5"} mr={"5"} h={"65vh"} borderRadius="3xl" overflow={"auto"}>

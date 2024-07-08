@@ -10,13 +10,13 @@ const modeNum = [
   "Dysfunctional Parent Mode"
 ]
 
-const theMode = "Now, you're :" 
+const theMode = "Now, you're :"
 
 const ModeState = (props: Props) => {
 
 
   return (
-    <Heading textAlign={"center"} fontStyle={"normal"} fontWeight={"light"} m={"5"}>{theMode} {modeNum[props.mode]}</Heading>
+    <Heading fontSize={"x-large"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"5"}>{theMode} {modeNum[props.mode]}</Heading>
   );
 
 
