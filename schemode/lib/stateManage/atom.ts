@@ -2,17 +2,17 @@ import { type } from "os";
 import { atom } from "recoil";
 
 export type opinionState = {
-    id: number,
-    mode: number,
-    text: string,
-}
+  id: number;
+  mode: number;
+  text: string;
+};
 
 export const opinionsState = atom<opinionState[]>({
-  key: 'opinionState',
+  key: "opinionState",
   default: [],
 });
 
 export const countState = atom({
   key: "count",
-  default: 0
+  default: 0,
 });
