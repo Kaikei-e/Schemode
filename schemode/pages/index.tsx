@@ -34,7 +34,7 @@ const Home: NextPage = () => {
     <Flex bgColor={"blackAlpha.100"} flexDir="column" w={"100%"} h={"100%"} overflow={"hidden"}>
       <Flex textAlign={'center'} w={"100%"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"}>
         <Heading size={"lg"} textAlign={"center"} fontStyle={"normal"} fontWeight={"medium"} m={"5"}>Schemode: The virtual chair work</Heading>
-        <Flex flexDir={"row"}>
+        <Flex flexDir={"row"} width={"100%"} textAlign={"center"} justify={"center"}>
           <Button width={"30%"} onClick={async () => {
             const props = {
               targetURL: backendURL,
@@ -44,7 +44,7 @@ const Home: NextPage = () => {
             const downdloadFormat = await CBTSessionExporter(props)
 
             setExportedpath(downdloadFormat.path)
-          }} w={"20%"}>Export Session Log</Button>
+          }} w={"20%"} backgroundColor={"teal.100"}>Export Session Log</Button>
         </Flex>
         {
           exportedPath ? exportedPath : <p>Not yet created</p>
