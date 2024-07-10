@@ -6,10 +6,6 @@ This is an application that pseudo-realizes interactive chair work with schema m
 - Shifting to [this app](https://github.com/Kaikei-e/Weathering) and adding more features. This app has more various features and purposes. It consists of multiple applications.
 
 
-~~## WIP~~
-~~I add the exporting functionality to log virtual chair work sessions and save the logs~~
-
-
 ## Tech stack
 - [Go](https://go.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
